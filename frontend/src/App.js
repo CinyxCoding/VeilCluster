@@ -1,6 +1,6 @@
 // src/App.js
 import React, { useState } from "react";
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { HashRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import Register from "./pages/Register";
 import Login from "./pages/Login";
 import Dashboard from "./pages/Dashboard"; // you can create this later
@@ -9,7 +9,7 @@ function App() {
   const [user, setUser] = useState(null);
 
   return (
-    <BrowserRouter>
+    <Router>
       <Routes>
         <Route path="/" element={<Navigate to="/login" replace />} />
         <Route path="/register" element={<Register />} />
@@ -19,7 +19,7 @@ function App() {
           element={user ? <Dashboard user={user} /> : <Navigate to="/login" replace />}
         />
       </Routes>
-    </BrowserRouter>
+    </Router>
   );
 }
 
